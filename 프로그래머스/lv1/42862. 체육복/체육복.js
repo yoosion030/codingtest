@@ -11,13 +11,11 @@ function solution(n, lost, reserve) {
   students.map((value, idx) => {
     // 왼쪽 값
     if (value >= 2 && students[idx - 1] === 0) {
-    //   if (idx === 0) return;
       students[idx - 1]++;
       students[idx]--;
     }
     // 오른쪽 값
     else if (value >= 2 && students[idx + 1] === 0) {
-    //   if (idx === students.length - 1) return;
       students[idx + 1]++;
       students[idx]--;
     }
