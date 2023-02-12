@@ -10,4 +10,4 @@ function solution(money) {
   console.log(count);
 }
 
-solution(1260)
+solution(1260); // 답: 500원 2개, 100원 2개, 50원 1개, 10원 1개 => 6
