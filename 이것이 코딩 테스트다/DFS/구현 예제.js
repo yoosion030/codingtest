@@ -11,25 +11,20 @@ const graph = {
   J: ["I"],
 };
 
-// (graph, 시작 정점)
-const dfs = (graph, startNode) => {
-  let needVisitStack = []; // 탐색을 해야 할 노드들
-  let visitedQueue = []; // 탐색을 마친 노드들
+const dfs = (graph, start) => {
+  const visited = []; // 탐색을 마친 노드들
+  const needVisit = []; // 탐색해야할 노드들
 
-  needVisitStack.push(startNode);
+  needVisit.push(start);
 
-  // 탐색을 해야 할 노드가 남아 있다면
-  while (needVisitStack.length !== 0) {
-    const node = needVisitStack.pop();
-    if (!visitedQueue.includes(node)) {
-      visitedQueue.push(node);
-      needVisitStack = [...needVisitStack, ...graph[node]];
+  while (needVisit.length !== 0) {
+    const node = needVisit.pop(); // 스택(Last In First Out)
+    if (!visited.includes(node)) {
+      visited.push(node);
+      needVisit.push(...graph[node].reverse());
     }
   }
-
-  return visitedQueue;
+  return visited;
 };
-
 console.log(dfs(graph, "A"));
-
-// ["A", "C", "I", "J", "H", "G", "B", "D", "F", "E"]
+// ["A", "B", "D", "E", "F", "C", "G", "H", "I", "J"]
