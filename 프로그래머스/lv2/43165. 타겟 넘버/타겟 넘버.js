@@ -13,6 +13,5 @@ function solution(numbers, target) {
     dfs(index + 1, sum - value);
     dfs(index + 1, sum + value);
   }
-  console.log(answer);
   return answer;
 }
