@@ -6,11 +6,9 @@ function solution(people, limit) {
     let max = people.pop();
 
     if (people[0] + max <= limit) {
-      count += 1;
       people.shift();
-    } else {
-      count += 1;
     }
+    count += 1;
   }
   return count;
 }
