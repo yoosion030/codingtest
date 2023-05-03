@@ -6,6 +6,6 @@ function solution(str_list) {
   if (l < r) {
     return str_list.slice(0, l);
   } else if (l > r) {
-    return str_list.splice(r + 1, str_list.length);
+    return str_list.splice(r + 1);
   }
 }
