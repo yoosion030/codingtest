@@ -6,7 +6,6 @@ function solution(s) {
 
     if (target === s[i + 1]) {
       answer = answer.replaceAll(target, "");
-      console.log(answer);
     }
   }
   return answer;
