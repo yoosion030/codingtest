@@ -4,7 +4,7 @@ function solution(n, lost, reserve) {
 
   // 체육복 가져온 학생들 index 1씩 증가
   reserve.map((value) => students[value - 1]++);
-
+    
   // 체육복 잃어버린 학생들 index 1씩 감소
   lost.map((value) => students[value - 1]--);
 
