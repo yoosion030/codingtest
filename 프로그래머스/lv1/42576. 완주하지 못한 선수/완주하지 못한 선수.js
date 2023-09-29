@@ -1,22 +1,19 @@
 function solution(participant, completion) {
-  const hashMap = {}; // 해시 맵 생성
+  let obj = {};
+  let answer = "";
+  participant.map((value, i) => {
+    obj[value] = obj[value] ? obj[value] + 1 : 1;
+  });
 
-  for (const name of participant) {
-    if (!hashMap[name]) {
-      hashMap[name] = 1;
-    } else {
-      hashMap[name]++;
+  completion.map((value, i) => {
+    obj[value] -= 1;
+  });
+
+  participant.map((value, i) => {
+    if (obj[value] > 0) {
+      answer = value;
     }
-  }
+  });
 
-  for (const name of completion) {
-    hashMap[name]--;
-  }
-
-  // value 값이 1인 key 찾기
-  for (const name in hashMap) {
-    if (hashMap[name] === 1) {
-      return name;
-    }
-  }
+  return answer;
 }
