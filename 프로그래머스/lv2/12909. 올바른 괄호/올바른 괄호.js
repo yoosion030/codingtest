@@ -1,13 +1,13 @@
 function solution(s) {
-  let stack = [];
-  if (s[0] === ")" || s[s.length - 1] === "(") return false;
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === "(") stack.push(s[i]);
-    else if (s[i] === ")") {
-      if (stack.length === 0) return false;
-      stack.pop();
-    }
+  let answer = [];
+
+  const arr = s.split("");
+
+  for (const bracket of arr) {
+    if (arr[0] === ")") return false;
+    if (bracket === "(") answer.push(bracket);
+    else answer.pop();
   }
 
-  return stack.length > 0 ? false : true;
+  return Boolean(!answer.length);
 }
