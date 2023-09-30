@@ -56,7 +56,10 @@ class PriorityQueue {
       if (this.heap[parentIdx] <= this.heap[currentIndex]) {
         break;
       }
-      [this.heap[parentIdx], this.heap[currentIndex]] = [this.heap[currentIndex], this.heap[parentIdx]];
+      [this.heap[parentIdx], this.heap[currentIndex]] = [
+        this.heap[currentIndex],
+        this.heap[parentIdx],
+      ];
       currentIndex = parentIdx;
     }
   }
@@ -68,11 +71,17 @@ class PriorityQueue {
       const rightIndex = this.rightChildIndex(currentIndex);
       let minIndex = currentIndex;
 
-      if (leftIndex < this.size() && this.heap[leftIndex] < this.heap[minIndex]) {
+      if (
+        leftIndex < this.size() &&
+        this.heap[leftIndex] < this.heap[minIndex]
+      ) {
         minIndex = leftIndex;
       }
 
-      if (rightIndex < this.size() && this.heap[rightIndex] < this.heap[minIndex]) {
+      if (
+        rightIndex < this.size() &&
+        this.heap[rightIndex] < this.heap[minIndex]
+      ) {
         minIndex = rightIndex;
       }
 
@@ -80,7 +89,10 @@ class PriorityQueue {
         break;
       }
 
-      [this.heap[currentIndex], this.heap[minIndex]] = [this.heap[minIndex], this.heap[currentIndex]];
+      [this.heap[currentIndex], this.heap[minIndex]] = [
+        this.heap[minIndex],
+        this.heap[currentIndex],
+      ];
       currentIndex = minIndex;
     }
   }
@@ -99,6 +111,7 @@ function solution(scoville, K) {
     const first = priorityQueue.dequeue();
     const second = priorityQueue.dequeue();
     const mixedScoville = first + second * 2;
+
     priorityQueue.enqueue(mixedScoville);
     answer++;
   }
