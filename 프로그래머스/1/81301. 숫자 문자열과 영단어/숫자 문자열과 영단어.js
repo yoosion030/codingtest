@@ -13,9 +13,7 @@ function solution(s) {
   };
 
   for (const key in numbers) {
-    if (s.includes(key)) {
-      s = s.replaceAll(key, numbers[key]);
-    }
+    s = s.replaceAll(key, numbers[key]);
   }
 
   return +s;
